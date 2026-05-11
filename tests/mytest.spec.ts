@@ -11,9 +11,12 @@ test("title", () => {
 //fixture - global variable : page, browser
 
 
-test("Verify Google title", ({page}) => {
+test("Verify Google title", async ({page}) => {
+    
 
-
+    await page.goto('https://google.com');
+    const title = await page.title();
+    expect(title).toContain('Google');
 
 
 })
